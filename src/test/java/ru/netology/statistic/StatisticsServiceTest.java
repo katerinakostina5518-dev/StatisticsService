@@ -29,4 +29,41 @@ public class StatisticsServiceTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    void findMaxWithFirstElement() {
+        StatisticsService service = new StatisticsService();
+
+        long[] incomesInBillions = {100};
+        long expected = 100;
+
+        long actual = service.findMax(incomesInBillions);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void findMaxWithAllEqual() {
+        StatisticsService service = new StatisticsService();
+
+        long[] incomesInBillions = {8, 8, 8, 8};
+        long expected = 8;
+
+        long actual = service.findMax(incomesInBillions);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void findMaxWhenMaxAtTheEnd() {
+        StatisticsService service = new StatisticsService();
+
+        long[] incomesInBillions = {1, 2, 3, 15};
+        long expected = 15;
+
+        long actual = service.findMax(incomesInBillions);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
 }
